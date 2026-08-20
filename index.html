@@ -13,6 +13,9 @@
   h2 { border-bottom: 2px solid #1a1a2e; padding-bottom: 8px; }
   .project { background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
   .project h3 { margin-top: 0; }
+  .project img { width: 100%; border-radius: 6px; margin-top: 12px; border: 1px solid #ddd; }
+  .download-link { display: inline-block; margin-top: 12px; padding: 8px 16px; background: #1a1a2e; color: white; text-decoration: none; border-radius: 6px; font-size: 0.9em; }
+  .download-link:hover { background: #333; }
   .skills span { display: inline-block; background: #e0e0e0; padding: 6px 12px; border-radius: 20px; margin: 4px; font-size: 0.9em; }
   footer { text-align: center; padding: 20px; color: #777; }
   a { color: #1a1a2e; }
@@ -36,13 +39,15 @@
   <div class="project">
     <h3>Sales Analytics Dashboard (Power BI + SQL Server)</h3>
     <p>Restored the AdventureWorks database in SQL Server, built a data model, and designed an interactive Power BI dashboard visualizing sales trends and key metrics using DAX measures.</p>
-    <!-- Add your dashboard screenshot here: <img src="dashboard.png" alt="Sales dashboard" style="width:100%; border-radius: 8px;"> -->
+    <img src="powerbi-dashboard.png" alt="Power BI sales analytics dashboard">
+    <br>
+    <a class="download-link" href="Sales_Profit_Dashboard_Project1.pbix" download>Download .pbix file</a>
   </div>
 
   <div class="project">
-    <h3>Bank Reconciliation Workbook (Excel)</h3>
-    <p>Built a reconciliation workbook processing a real BPAY bank file as part of the Excel Skills for Business capstone, applying formulas, PivotTables, and data validation.</p>
-    <!-- Add your workbook screenshot here -->
+    <h3>Pay Equity Analysis (Excel)</h3>
+    <p>Built an equality scoring table analyzing pay fairness across job roles and factory locations, calculating equality scores and flagging highly discriminatory, unfair, and fair pay bands.</p>
+    <img src="excel-equality-table.png" alt="Excel pay equity analysis table">
   </div>
 
 </section>
@@ -71,3 +76,4 @@
 
 </body>
 </html>
+
