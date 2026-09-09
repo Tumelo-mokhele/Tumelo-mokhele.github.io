@@ -4,120 +4,255 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tumelo Mokhele | Data Analyst Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+  :root {
+    --bg: #0B1220;
+    --panel: #121B2E;
+    --panel-border: #223049;
+    --text: #E7ECF3;
+    --text-dim: #8B97AC;
+    --blue: #4C8DFF;
+    --amber: #F2B84B;
+  }
+  * { box-sizing: border-box; }
   body {
-    font-family: Arial, Helvetica, sans-serif;
-    max-width: 800px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  main {
+    max-width: 720px;
     margin: 0 auto;
-    padding: 20px;
-    line-height: 1.6;
-    color: #222;
+    padding: 56px 24px 80px;
   }
-  h1 { margin-bottom: 4px; }
-  .tagline { color: #555; margin-top: 0; }
-  .tags span {
-    display: inline-block;
-    background: #eef2ff;
-    color: #333;
-    padding: 4px 10px;
-    border-radius: 12px;
-    margin-right: 6px;
-    font-size: 14px;
+
+  /* Hero */
+  .hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 42px;
+    line-height: 1.15;
+    margin: 0 0 14px;
+    font-weight: 700;
+    max-width: 11ch;
   }
+  .hero p {
+    color: var(--text-dim);
+    font-size: 17px;
+    max-width: 46ch;
+    margin: 0 0 28px;
+  }
+  .readout {
+    display: flex;
+    gap: 28px;
+    border-top: 1px solid var(--panel-border);
+    padding-top: 20px;
+    flex-wrap: wrap;
+  }
+  .readout div { min-width: 90px; }
+  .readout .num {
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--blue);
+    font-size: 22px;
+    display: block;
+  }
+  .readout .label {
+    color: var(--text-dim);
+    font-size: 13px;
+  }
+
+  /* Section headings */
   h2 {
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 6px;
-    margin-top: 40px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 56px 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
   }
+  h2::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: var(--amber);
+    border-radius: 1px;
+    display: inline-block;
+  }
+
+  /* Project panels */
   .project {
-    margin-bottom: 30px;
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-left: 3px solid var(--blue);
+    border-radius: 4px;
+    padding: 22px 24px 26px;
+    margin-bottom: 22px;
   }
-  .project h3 { margin-bottom: 6px; }
-  .project h4 {
-    margin-bottom: 4px;
-    margin-top: 20px;
-    color: #333;
+  .project.amber { border-left-color: var(--amber); }
+  .project h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    margin: 0 0 10px;
+    font-weight: 700;
+  }
+  .project > p {
+    color: var(--text-dim);
+    font-size: 15px;
+    margin: 0 0 16px;
+  }
+  .subpage {
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid var(--panel-border);
+  }
+  .subpage:first-of-type { margin-top: 4px; border-top: none; padding-top: 0; }
+  .subpage h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--amber);
+    margin: 0 0 6px;
+    letter-spacing: 0.02em;
+  }
+  .subpage p {
+    color: var(--text-dim);
+    font-size: 14.5px;
+    margin: 0 0 10px;
   }
   .project img {
     max-width: 100%;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    margin: 8px 0;
+    border: 1px solid var(--panel-border);
+    border-radius: 4px;
+    display: block;
   }
-  .project a {
+  .project a.dl {
     display: inline-block;
-    margin-top: 6px;
-    color: #1a56db;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  .project a:hover { text-decoration: underline; }
-  footer {
-    margin-top: 50px;
-    color: #777;
+    margin-top: 16px;
+    color: var(--blue);
     font-size: 14px;
-    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+  }
+  .project a.dl:hover { border-bottom-color: var(--blue); }
+
+  /* Skills */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .tags span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--text);
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    padding: 6px 12px;
+    border-radius: 4px;
+  }
+
+  /* Contact */
+  .contact a {
+    color: var(--blue);
+    text-decoration: none;
+    font-size: 15px;
+  }
+  .contact a:hover { text-decoration: underline; }
+  .contact p { margin: 8px 0; }
+
+  footer {
+    margin-top: 64px;
+    color: var(--text-dim);
+    font-size: 13px;
+    border-top: 1px solid var(--panel-border);
+    padding-top: 20px;
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 { font-size: 32px; }
   }
 </style>
 </head>
 <body>
+<main>
 
-<h1>Tumelo Mokhele</h1>
-<p class="tagline">Aspiring Data Analyst turning raw data into clear insight</p>
-<div class="tags">
-  <span>SQL</span><span>Power BI</span><span>Excel</span><span>South Africa</span>
-</div>
+  <section class="hero">
+    <h1>Turning raw data into clear decisions</h1>
+    <p>Aspiring data analyst based in South Africa, building practical skills through hands-on projects in SQL, Power BI, and Excel.</p>
+    <div class="readout">
+      <div><span class="num">03</span><span class="label">projects shipped</span></div>
+      <div><span class="num">02</span><span class="label">certifications</span></div>
+      <div><span class="num">SQL·BI·XL</span><span class="label">core tools</span></div>
+    </div>
+  </section>
 
-<h2>About</h2>
-<p>I'm a self-taught data analyst based in South Africa, building practical skills through hands-on projects in SQL, Power BI, and Excel. I completed the Excel Fundamentals for Data Analysis certification (Macquarie University), and I'm currently working through the Google Data Analytics Professional Certificate.</p>
+  <h2>About</h2>
+  <p style="color:var(--text-dim); font-size:15px; max-width:60ch;">
+    I'm self-taught in data analytics, building practical skills through hands-on projects in SQL, Power BI, and Excel.
+    I completed the Excel Fundamentals for Data Analysis certification (Macquarie University), and I'm currently
+    working through the Google Data Analytics Professional Certificate.
+  </p>
 
-<h2>Projects</h2>
+  <h2>Projects</h2>
 
-<div class="project">
-  <h3>📊 Sales Analytics Dashboard (Power BI + SQL Server)</h3>
-  <p>Restored the AdventureWorks database in SQL Server, built a data model, and designed an interactive Power BI dashboard visualizing sales trends and key metrics using DAX measures.</p>
-  <img src="powerbi-dashboard.png" alt="Power BI sales analytics dashboard">
-  <a href="Sales_Profit_Dashboard_Project1.pbix">Download .pbix file</a>
-</div>
+  <div class="project">
+    <h3>Sales Analytics Dashboard — Power BI + SQL Server</h3>
+    <p>Restored the AdventureWorks database in SQL Server, built a data model, and designed an interactive Power BI dashboard visualizing sales trends and key metrics using DAX measures.</p>
+    <img src="powerbi-dashboard.png" alt="Power BI sales analytics dashboard">
+    <a class="dl" href="Sales_Profit_Dashboard_Project1.pbix">Download .pbix file</a>
+  </div>
 
-<div class="project">
-  <h3>📈 Adventure Works Sales Dashboard (Power BI)</h3>
-  <p>Multi-page Power BI dashboard built on the Adventure Works dataset, using DAX measures, table relationships, and interactive visuals to explore sales, profit, and performance.</p>
+  <div class="project">
+    <h3>Adventure Works Sales Dashboard — Power BI</h3>
+    <p>Multi-page Power BI dashboard built on the Adventure Works dataset, using DAX measures, table relationships, and interactive visuals to explore sales, profit, and performance.</p>
 
-  <h4>Overview</h4>
-  <p>Sales and profit margin trends by month, broken down by region, product group, and category — giving a full picture of where sales and quantity are concentrated across the business.</p>
-  <img src="Overview.png" alt="Adventure Works dashboard overview page">
+    <div class="subpage">
+      <h4>Overview</h4>
+      <p>Sales and profit margin trends by month, broken down by region, product group, and category — showing where sales and quantity are concentrated across the business.</p>
+      <img src="Overview.png" alt="Adventure Works dashboard overview page">
+    </div>
 
-  <h4>Profit</h4>
-  <p>Year-over-year profit breakdown by fiscal year and quarter, showing orders, sales, cost, profit, and profit margin so trends and underperforming periods are easy to spot.</p>
-  <img src="Profit.png" alt="Adventure Works dashboard profit page">
+    <div class="subpage">
+      <h4>Profit</h4>
+      <p>Year-over-year profit breakdown by fiscal year and quarter, showing orders, sales, cost, profit, and profit margin so trends and underperforming periods are easy to spot.</p>
+      <img src="Profit.png" alt="Adventure Works dashboard profit page">
+    </div>
 
-  <h4>My Performance</h4>
-  <p>Performance tracking against sales targets by month, with variance and variance margin highlighted to show how actual results compared to goals.</p>
-  <img src="My-Performance.png" alt="Adventure Works dashboard performance page">
+    <div class="subpage">
+      <h4>My Performance</h4>
+      <p>Performance tracking against sales targets by month, with variance and variance margin highlighted to show how actual results compared to goals.</p>
+      <img src="My-Performance.png" alt="Adventure Works dashboard performance page">
+    </div>
 
-  <a href="Adventure-Works-Sales-Dashboard.pbix">Download .pbix file</a>
-</div>
+    <a class="dl" href="Adventure-Works-Sales-Dashboard.pbix">Download .pbix file</a>
+  </div>
 
-<div class="project">
-  <h3>⚖️ Pay Equity Analysis (Excel)</h3>
-  <p>Built an equality scoring table analyzing pay fairness across job roles and factory locations, calculating equality scores and flagging highly discriminatory, unfair, and fair pay bands.</p>
-  <img src="excel-equality-table.png" alt="Excel pay equity analysis table">
-  <a href="Excel-Equality-Table.xlsx">Download Excel workbook</a>
-</div>
+  <div class="project amber">
+    <h3>Pay Equity Analysis — Excel</h3>
+    <p>Built an equality scoring table analyzing pay fairness across job roles and factory locations, calculating equality scores and flagging highly discriminatory, unfair, and fair pay bands.</p>
+    <img src="excel-equality-table.png" alt="Excel pay equity analysis table">
+    <a class="dl" href="Excel-Equality-Table.xlsx">Download Excel workbook</a>
+  </div>
 
-<h2>Skills</h2>
-<div class="tags">
-  <span>SQL</span><span>Power BI</span><span>DAX</span><span>Excel</span><span>Data Cleaning</span><span>Data Visualization</span>
-</div>
+  <h2>Skills</h2>
+  <div class="tags">
+    <span>SQL</span><span>Power BI</span><span>DAX</span><span>Excel</span><span>Data Cleaning</span><span>Data Visualization</span>
+  </div>
 
-<h2>Contact</h2>
-<p>
-  ✉️ <a href="mailto:tumelomokhele.17@gmail.com">tumelomokhele.17@gmail.com</a><br>
-  🔗 <a href="#">Add your LinkedIn URL here</a>
-</p>
+  <h2>Contact</h2>
+  <div class="contact">
+    <p>✉️ <a href="mailto:tumelomokhele.17@gmail.com">tumelomokhele.17@gmail.com</a></p>
+    <p>🔗 <a href="#">Add your LinkedIn URL here</a></p>
+  </div>
 
-<footer>© 2026 Tumelo Mokhele</footer>
+  <footer>© 2026 Tumelo Mokhele</footer>
 
+</main>
 </body>
-</html>
+  </html>
+  
